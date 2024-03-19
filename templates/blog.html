@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>ProggerX's blog</title>
+		<meta name="darkreader-lock">
+		<link rel="stylesheet" href="static/style.css">
+	</head>
+	<body>
+		<h1 class="facts_title">
+			ProggerX's blog
+		</h1>
+		<ul class="facts">
+			{{#posts}}
+			<div class="fact">
+				{{{.}}}
+			</div>
+			{{/posts}}
+			<div class="fact">
+				<p><a href="/">Return to main page</a></p>
+			</div>
+		</ul>
+	</body>
+</html>
