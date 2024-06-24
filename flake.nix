@@ -42,7 +42,7 @@
 						systemd.services.site = {
 							wantedBy = [ "multi-user.target "];
 							serviceConfig = {
-								ExStart = "${self.packages.default}/bin/site";
+								ExStart = "${self.packages."${system}".default}/bin/site";
 							};
 						};
 						services.nginx = {
