@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>ProggerX's site</title>
+		<meta name="darkreader-lock">
+		<link rel="stylesheet" href="static/style.css">
+	</head>
+	<body>
+		<div class="main">
+			<p class="bio">
+				<strong class="greeting">
+					Hello, I'm ProggerX,
+				</strong>
+				coding enjoyer and open-source developer.
+				<br>
+				I <span style="color: #f38ba8;">love <3</span> <span style="color: #89b4fa;">C++</span> very much and <s>code everything in it</s>. Now i use Go.
+				(this site is powered by <a href="https://crowcpp.org">CrowCpp</a>)
+			</p>
+			<h1 class="facts_title">
+				Interesting facts about me:
+			</h1>
+			<ul class="facts">
+				{{#facts}}
+				<div class="fact">
+					<p>{{{.}}}</p>
+				</div>
+				{{/facts}}
+			</ul>
+			<h1 class="facts_title">
+				Latest post:
+			</h1>
+			<ul class="facts">
+				<div class="fact">
+					{{{latest_post}}}
+				</div>
+				<div class="fact">
+					<p><a href="/blog">View other posts</a></p>
+				</div>
+			</ul>
+			<a href="https://t.me/proggerx" style="font-size: 2em;">My Telegram</a>
+		</div>
+	</body>
+</html>

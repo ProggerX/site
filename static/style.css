@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital@0;1&display=swap');
+
+* {
+	font-family: Rubik, sans-serif;
+	text-align: center;
+	font-size: 1em;
+	color: #cdd6f4;
+}
+.bio {
+	font-size: 2em;
+	margin-bottom: 2em;
+}
+body {
+	background-color: #1e1e2e;
+}
+.main {
+	padding: 7px;
+	text-align: center;
+}
+.greeting {
+	font-size: 1.5em;
+	font-family: Kalam, sans-serif;
+	color: #cba6f7;
+}
+
+.facts_title {
+	font-size: 2.2em;
+}
+.facts {
+	border-radius: 15px;
+	width: 50%;
+	margin: 20px;
+	padding: 7px;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+.fact  {
+	font-size: 1.5em;
+	background-color: #313244;
+	border-radius: 7px;
+	margin: 1em;
+	padding: 0.01em;
+	text-align: center;
+	position: center;
+	font-size: 1.6em;
+	box-shadow: 10px 10px 10px #313244;
+	border: solid 2px #cba6f7;
+	transition: all 0.2s ease-in-out;
+}
+
+.fact:hover {
+	transform: translateY(-5px);
+	transition: all 0.2s ease-in-out;
+}
+
+
+a {
+	color: #b4befe;
+	text-decoration: none;
+}
