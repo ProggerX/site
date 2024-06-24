@@ -26,6 +26,7 @@
 			};
 			config = lib.mkIf config.server.site.enable {
 				containers.site = {
+					autoStart = true;
 					privateNetwork = true;
 					forwardPorts = [
 						{
