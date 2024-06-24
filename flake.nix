@@ -29,8 +29,6 @@
 					privateNetwork = true;
 					hostAddress = "192.168.1.248";
 					localAddress = "192.168.1.101";
-					services.resolved.enable = true;
-					networking.useHostResolvConf = lib.mkForce false;
 					forwardPorts = [
 						{
 							hostPort = 80;
@@ -42,6 +40,8 @@
 						}
 					];
 					config = {
+						services.resolved.enable = true;
+						networking.useHostResolvConf = lib.mkForce false;
 						system.stateVersion = "24.05";
 						systemd.services.site = {
 							wantedBy = [ "multi-user.target" ];
