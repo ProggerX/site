@@ -40,7 +40,7 @@
 					config = {
 						system.stateVersion = "24.05";
 						systemd.services.site = {
-							wantedBy = [ "multi-user.target "];
+							wantedBy = [ "multi-user.target" ];
 							serviceConfig = {
 								ExStart = "${self.packages."${system}".default}/bin/site";
 							};
