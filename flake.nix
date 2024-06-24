@@ -20,7 +20,7 @@
 			buildPhase = ''g++ ./src/main.cpp -I./include -o out'';
 			installPhase = ''mkdir -p $out/bin && mv ./out $out/bin/site'';
 		};
-		nixosModules.default = { config, lib, ... }: {
+		nixosModules.site = { config, lib, ... }: {
 			options = {
 				server.site.enable = lib.mkEnableOption "Enable ProggerX's site";
 			};
