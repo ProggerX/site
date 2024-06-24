@@ -24,7 +24,7 @@
 				server.site.enable = lib.mkEnableOption "Enable ProggerX's site";
 			};
 			config = lib.mkIf config.server.site.enable {
-				containers.site = {
+				containers.site-container = {
 					autoStart = true;
 					privateNetwork = true;
 					forwardPorts = [
