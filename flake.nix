@@ -24,49 +24,28 @@
 				server.site.enable = lib.mkEnableOption "Enable ProggerX's site";
 			};
 			config = lib.mkIf config.server.site.enable {
-				containers.site = {
-					autoStart = true;
-					privateNetwork = true;
-					localAddress = "192.168.1.249/24";
-					hostBridge = "br0";
-					forwardPorts = [
-						{
-							hostPort = 80;
-							containerPort = 80;
-						}
-						{
-							hostPort = 443;
-							containerPort = 443;
-						}
-					];
-					config = {
-						services.resolved.enable = true;
-						networking.useHostResolvConf = lib.mkForce false;
-						system.stateVersion = "24.05";
-						systemd.services.site = {
-							wantedBy = [ "multi-user.target" ];
-							serviceConfig = {
-								ExStart = "${self.packages."${system}".default}/bin/site";
-							};
-						};
-						services.nginx = {
-							enable = true;
-							virtualHosts.site = {
-								addSSL = true;
-								enableACME = true;
-								serverName = "proggers.ru";
-								locations."/" = {
-									proxyPass = "http://0.0.0.0:8005";
-								};
-							};
-						};
-						security.acme = {
-							acceptTerms = true;
-							defaults.email = "x@proggers.ru";
-						};
-						networking.firewall.allowedTCPPorts = [ 80 443 ];
+				systemd.services.site = {
+					wantedBy = [ "multi-user.target" ];
+					serviceConfig = {
+						ExStart = "${self.packages."${system}".default}/bin/site";
 					};
 				};
+				services.nginx = {
+					enable = true;
+					virtualHosts.site = {
+						addSSL = true;
+						enableACME = true;
+						serverName = "proggers.ru";
+						locations."/" = {
+							proxyPass = "http://0.0.0.0:8005";
+						};
+					};
+				};
+				security.acme = {
+					acceptTerms = true;
+					defaults.email = "x@proggers.ru";
+				};
+				networking.firewall.allowedTCPPorts = [ 80 443 ];
 			};
 		};
 	};
