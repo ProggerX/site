@@ -28,7 +28,7 @@
 					autoStart = true;
 					privateNetwork = true;
 					hostAddress = "192.168.1.248";
-					localAddress = "192.168.1.101";
+					localAddress = "192.168.1.249";
 					forwardPorts = [
 						{
 							hostPort = 80;
