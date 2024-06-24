@@ -60,6 +60,7 @@
 							acceptTerms = true;
 							defaults.email = "x@proggers.ru";
 						};
+						networking.firewall.allowedTCPPorts = [ 80 443 ];
 					};
 				};
 			};
