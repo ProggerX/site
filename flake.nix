@@ -1,27 +1,24 @@
 {
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-		flake-utils.url = "github:numtide/flake-utils";
 	};
 
-	outputs = { self, nixpkgs, flake-utils, ... }:
-	{
-		packages = flake-utils.lib.eachDefaultSystem (system:
-		let pkgs = nixpkgs.legacyPackages.${system};
-		in {
-			default = pkgs.stdenv.mkDerivation {
-				name = "site";
-				src = ./.;
-				buildInputs = with pkgs; [
-					boost.dev
-				];
-				nativeBuildInputs = with pkgs; [
-					gcc
-				];
-				buildPhase = ''g++ ./src/main.cpp -I./include -o out'';
-				installPhase = ''mkdir -p $out/bin && mv ./out $out/bin/site'';
-			};
-		});
+	outputs = { self, nixpkgs, ... }:
+	let system = "aarch64-linux";
+	pkgs = nixpkgs.legacyPackages.${system};
+	in {
+		packages."${system}".default = pkgs.stdenv.mkDerivation {
+			name = "site";
+			src = ./.;
+			buildInputs = with pkgs; [
+				boost.dev
+			];
+			nativeBuildInputs = with pkgs; [
+				gcc
+			];
+			buildPhase = ''g++ ./src/main.cpp -I./include -o out'';
+			installPhase = ''mkdir -p $out/bin && mv ./out $out/bin/site'';
+		};
 		nixosModules.site = { config, lib, ... }: {
 			options = {
 				server.site.enable = lib.mkEnableOption "Enable ProggerX's site";
