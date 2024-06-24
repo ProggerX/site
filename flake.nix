@@ -29,6 +29,8 @@
 					privateNetwork = true;
 					hostAddress = "192.168.1.248";
 					localAddress = "192.168.1.101";
+					services.resolved.enable = true;
+					networking.useHostResolvConf = lib.mkForce false;
 					forwardPorts = [
 						{
 							hostPort = 80;
