@@ -50,7 +50,7 @@
 							virtualHosts.site = {
 								addSSL = true;
 								enableACME = true;
-								serverName = "_";
+								serverName = "proggers.ru";
 								locations."/" = {
 									proxyPass = "http://0.0.0.0:8005";
 								};
