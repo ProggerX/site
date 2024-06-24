@@ -27,8 +27,8 @@
 				containers.site = {
 					autoStart = true;
 					privateNetwork = true;
-					hostAddress = "192.168.1.248";
-					localAddress = "192.168.1.249";
+					localAddress = "192.168.1.249/24";
+					hostBridge = "br0";
 					forwardPorts = [
 						{
 							hostPort = 80;
