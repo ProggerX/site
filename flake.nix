@@ -28,6 +28,7 @@
 					wantedBy = [ "multi-user.target" ];
 					serviceConfig = {
 						ExecStart = "${self.packages."${system}".default}/bin/site";
+						WorkingDirectory = "${self.packages."${system}".default}/";
 					};
 				};
 				services.nginx = {
