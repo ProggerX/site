@@ -17,7 +17,7 @@
 				gcc
 			];
 			buildPhase = ''g++ ./src/main.cpp -I./include -o out'';
-			installPhase = ''mkdir -p $out/bin && mv ./out $out/bin/site'';
+			installPhase = ''mkdir $out && cp -r ./* $out'';
 		};
 		nixosModules.site = { config, lib, ... }: {
 			options = {
@@ -28,7 +28,7 @@
 					wantedBy = [ "multi-user.target" ];
 					serviceConfig = {
 						WorkingDirectory = "${self.packages."${system}".default}";
-						ExecStart = "${self.packages."${system}".default}/bin/site";
+						ExecStart = "./out";
 					};
 				};
 				services.nginx = {
