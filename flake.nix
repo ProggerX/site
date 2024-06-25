@@ -27,8 +27,8 @@
 				systemd.services.site = {
 					wantedBy = [ "multi-user.target" ];
 					serviceConfig = {
+						WorkingDirectory = "${self.packages."${system}".default}";
 						ExecStart = "${self.packages."${system}".default}/bin/site";
-						WorkingDirectory = "${self.packages."${system}".default}/";
 					};
 				};
 				services.nginx = {
